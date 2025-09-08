@@ -2,24 +2,24 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+const [ Counter, setCounter] = useState(0)
 
-  const addvalue = () => {
-    setCount(count + 1)
-  }
+const addValue = () => {
+  setCounter(Counter+1)
+}
 
-  const removeValue = () => {
-    setCount(count - 1)
-  }
+const removeValue = () => {
+  setCounter(Counter-1)
+}
 
-  return (
-    <>
-     <h1>Learn react with Me</h1>
-     <h2>counter value: {count} </h2>
-     <button onClick={addvalue}>Add Value</button> {" "}
-     <button onClick={removeValue}>Remove Value</button>
-    </>
-  )
+ return (
+  <>
+   <h1>React learn with Me</h1>
+   <h2>Counter : {Counter}</h2>
+   <button onClick={addValue}>Add </button> {" "}
+   <button onClick={removeValue}>Remove</button>
+  </>
+ )
 }
 
 export default App
