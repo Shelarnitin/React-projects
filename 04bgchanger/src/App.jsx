@@ -1,53 +1,49 @@
-import { useState } from "react";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  // state for background
-  const [bgColor, setBgColor] = useState("bg-white");
+  const [color, setColor] = useState('white')
 
-  const colors = {
-    Red: "bg-red-500",
-    Green: "bg-green-500",
-    Blue: "bg-blue-500",
-    Yellow: "bg-yellow-500",
-    Purple: "bg-purple-500",
-  };
-
-  const gradient = "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500";
+  // function changeColor(color) {
+  //   setColor(color)
+  // }
 
   return (
-    <div className={`h-screen flex flex-col items-center justify-center ${bgColor} transition-colors duration-500`}>
-      <h1 className="text-3xl font-bold text-white mb-8 drop-shadow-md">
-        Background Changer App
-      </h1>
-
-      <div className="flex flex-wrap gap-4 justify-center">
-        {Object.entries(colors).map(([name, color]) => (
+    <div className='w-full h-screen duration-500 transition-colors ' style={{backgroundColor: color}}>
+      <div className='fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2'>
+        <div className='flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl'>
           <button
-            key={name}
-            onMouseOver={() => setBgColor(color)}
-            className="px-4 py-2 rounded-lg text-white font-medium shadow-md transition transform hover:scale-105"
-            style={{ backgroundColor: color.split("-")[1] }} // quick way to colorize buttons
-          >
-            {name}
-          </button>
-        ))}
-
-        <button
-          onMouseOver={() => setBgColor(gradient)}
-          className="px-4 py-2 rounded-lg text-white font-medium shadow-md bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:scale-105 transition"
-        >
-          Gradient
-        </button>
-
-        <button
-          onMouseOver={() => setBgColor("bg-white")}
-          className="px-4 py-2 rounded-lg bg-gray-800 text-white font-medium shadow-md hover:scale-105 transition"
-        >
-          Reset
-        </button>
+          onClick={() => setColor('red')}
+          className='outline-none px-4 py-1 rounded-full  shadow-lg text-black'
+          style={{backgroundColor: 'red'}}
+          >Red</button>
+          <button
+          onClick={() => setColor('green')}
+          className='outline-none px-4 py-1 rounded-full  shadow-lg text-black'
+          style={{backgroundColor: 'green'}}
+          >Green</button>
+          <button
+          onClick={() => setColor('purple')}
+          className='outline-none px-4 py-1 rounded-full  shadow-lg text-black'
+          style={{backgroundColor: 'purple'}}
+          >purple</button>
+          <button
+          onClick={() => setColor('pink')}
+          className='outline-none px-4 py-1 rounded-full  shadow-lg text-black'
+          style={{backgroundColor: 'pink'}}
+          >pink</button>
+          <button
+          onClick={() => setColor('white')}
+          className='outline-none px-4 py-1 rounded-full  shadow-lg text-black'
+          style={{backgroundColor: 'white'}}
+          >Reset</button>
+          
+          </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
